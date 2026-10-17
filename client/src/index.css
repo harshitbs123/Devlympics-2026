@@ -2,12 +2,11 @@
 
 @layer base {
   :root {
-    --font-sans: 'DM Sans', sans-serif;
+    --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-display: 'Syne', sans-serif;
-    --color-lime: #d2e815;
-    --color-lime-hover: #c2d80b;
-    --color-bg-cream: #f6f4ed;
-    --color-dark: #111214;
+    --color-cream: #fbf9f4;
+    --color-dark: #121316;
+    --color-yellow: #ffe600;
   }
 
   * {
@@ -16,19 +15,21 @@
   }
 
   body {
-    background-color: #080907;
-    color: #f6f4ed;
+    background-color: #fbf9f4;
+    color: #121316;
     font-family: var(--font-sans);
     min-height: 100vh;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
+    letter-spacing: -0.02em;
   }
 
   ::selection {
-    background: rgba(210, 232, 21, 0.28);
-    color: #f6f4ed;
+    background: #ffe600;
+    color: #121316;
   }
 }
 
@@ -40,9 +41,66 @@
   font-family: 'DM Sans', sans-serif;
 }
 
-.brand-mark {
-  display: inline-block;
-  background: conic-gradient(from 225deg, #f6f4ed, #d2e815, #8d9a10, #f6f4ed);
-  clip-path: polygon(50% 0%, 66% 36%, 100% 50%, 66% 64%, 50% 100%, 34% 64%, 0% 50%, 34% 36%);
-  filter: drop-shadow(0 0 8px rgba(210, 232, 21, 0.25));
+/* Subtle Perspective Grid (Matches Reference Image 1) */
+.hero-grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 38px 38px;
+  mask-image: radial-gradient(circle at 50% 45%, black 40%, transparent 85%);
+  -webkit-mask-image: radial-gradient(circle at 50% 45%, black 40%, transparent 85%);
+}
+
+/* Warm Ambient Golden Arch at Top (Continuous from top-0, matches Reference Image 1) */
+.hero-ambient-arch {
+  background: radial-gradient(ellipse 95% 75% at 50% 0%, rgba(245, 158, 11, 0.28) 0%, rgba(251, 191, 36, 0.16) 42%, rgba(254, 243, 199, 0.08) 68%, transparent 85%);
+}
+
+/* Leaf Shadow / Dappled Light Simulation */
+.sun-dappled-overlay {
+  background: 
+    radial-gradient(circle at 12% 18%, rgba(0, 0, 0, 0.035) 0%, transparent 40%),
+    radial-gradient(circle at 88% 22%, rgba(0, 0, 0, 0.04) 0%, transparent 45%),
+    radial-gradient(circle at 92% 75%, rgba(0, 0, 0, 0.03) 0%, transparent 35%);
+  pointer-events: none;
+}
+
+/* Playful Float & Bounce Animations */
+@keyframes doodleFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(2deg);
+  }
+}
+
+@keyframes doodleWiggle {
+  0%, 100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+.animate-doodle-float {
+  animation: doodleFloat 5s ease-in-out infinite;
+}
+
+.animate-doodle-float-delayed {
+  animation: doodleFloat 6s ease-in-out infinite 1.5s;
+}
+
+.animate-wiggle-slow {
+  animation: doodleWiggle 4s ease-in-out infinite;
+}
+
+/* Card 3D Lift */
+.card-lift {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-lift:hover {
+  transform: translateY(-12px);
 }

@@ -44,36 +44,33 @@ const SignupPage = () => {
   };
 
   return (
-    <div className="relative flex min-h-[calc(100vh-65px)] items-center justify-center px-4 py-12">
-      {/* Background Glow */}
-      <div className="pointer-events-none absolute h-96 w-96 rounded-full bg-[radial-gradient(circle,rgba(210,232,21,0.1)_0%,transparent_70%)] blur-3xl" />
-
-      <div className="relative z-10 w-full max-w-sm rounded-2xl border border-white/10 bg-[#0b0c0a]/95 p-6 shadow-2xl backdrop-blur-xl sm:p-8">
-        <div className="mb-5 flex justify-center">
+    <div className="relative flex min-h-[calc(100vh-100px)] items-center justify-center px-4 py-8">
+      <div className="relative z-10 w-full max-w-sm rounded-[2rem] border-2 border-[#121316] bg-white p-7 shadow-[6px_6px_0_#121316] sm:p-9">
+        <div className="mb-4 flex justify-center">
           <Link
             to="/"
-            className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#d2e815]/20 bg-[#d2e815]/10 shadow-lg shadow-[#d2e815]/10 transition hover:scale-105"
+            className="flex h-12 w-12 items-center justify-center rounded-2xl border-2 border-[#121316] bg-[#FFE600] shadow-[2px_2px_0_#121316] transition hover:scale-105"
           >
-            <span className="brand-mark h-6 w-6" />
+            <span className="text-xl">✌️</span>
           </Link>
         </div>
 
-        <h2 className="font-display text-center text-2xl font-extrabold tracking-tight text-[#f6f4ed]">
+        <h2 className="font-display text-center text-2xl font-black tracking-tight text-[#121316]">
           Create Account
         </h2>
-        <p className="font-sans mb-6 text-center text-xs text-[#f6f4ed]/60">
-          Join Devlympics 2026
+        <p className="font-sans mb-6 text-center text-xs font-medium text-stone-500">
+          Join OmniBridge • Devlympics 2026
         </p>
 
         {error && (
-          <div className="mb-4 rounded-xl border border-red-500/25 bg-red-950/40 p-3 text-center text-xs text-red-300">
+          <div className="mb-4 rounded-xl border-2 border-red-500 bg-red-50 p-3 text-center text-xs font-semibold text-red-600">
             {error}
           </div>
         )}
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-3.5">
           <div>
-            <label className="font-sans mb-1 block text-xs font-semibold text-[#f6f4ed]/75">
+            <label className="font-sans mb-1 block text-xs font-bold text-stone-700">
               Full Name
             </label>
             <input
@@ -82,15 +79,15 @@ const SignupPage = () => {
               placeholder="Alex Morgan"
               value={formData.name}
               onChange={handleChange}
-              className="w-full rounded-xl border border-white/10 bg-white/5 px-3.5 py-2.5 text-sm text-[#f6f4ed] placeholder-white/30 outline-none transition focus:border-[#d2e815]/50 focus:ring-1 focus:ring-[#d2e815]/30"
+              className="w-full rounded-xl border-2 border-[#121316] bg-stone-50 px-3.5 py-2.5 text-sm font-medium text-[#121316] placeholder-stone-400 outline-none transition focus:bg-white focus:shadow-[2px_2px_0_#121316]"
             />
             {formErrors.nameErr && (
-              <p className="mt-1 text-[11px] text-red-400">{formErrors.nameErr}</p>
+              <p className="mt-1 text-[11px] font-bold text-red-500">{formErrors.nameErr}</p>
             )}
           </div>
 
           <div>
-            <label className="font-sans mb-1 block text-xs font-semibold text-[#f6f4ed]/75">
+            <label className="font-sans mb-1 block text-xs font-bold text-stone-700">
               Email Address
             </label>
             <input
@@ -99,15 +96,15 @@ const SignupPage = () => {
               placeholder="alex@example.com"
               value={formData.email}
               onChange={handleChange}
-              className="w-full rounded-xl border border-white/10 bg-white/5 px-3.5 py-2.5 text-sm text-[#f6f4ed] placeholder-white/30 outline-none transition focus:border-[#d2e815]/50 focus:ring-1 focus:ring-[#d2e815]/30"
+              className="w-full rounded-xl border-2 border-[#121316] bg-stone-50 px-3.5 py-2.5 text-sm font-medium text-[#121316] placeholder-stone-400 outline-none transition focus:bg-white focus:shadow-[2px_2px_0_#121316]"
             />
             {formErrors.emailErr && (
-              <p className="mt-1 text-[11px] text-red-400">{formErrors.emailErr}</p>
+              <p className="mt-1 text-[11px] font-bold text-red-500">{formErrors.emailErr}</p>
             )}
           </div>
 
           <div>
-            <label className="font-sans mb-1 block text-xs font-semibold text-[#f6f4ed]/75">
+            <label className="font-sans mb-1 block text-xs font-bold text-stone-700">
               Password
             </label>
             <input
@@ -116,15 +113,15 @@ const SignupPage = () => {
               placeholder="••••••••"
               value={formData.password}
               onChange={handleChange}
-              className="w-full rounded-xl border border-white/10 bg-white/5 px-3.5 py-2.5 text-sm text-[#f6f4ed] placeholder-white/30 outline-none transition focus:border-[#d2e815]/50 focus:ring-1 focus:ring-[#d2e815]/30"
+              className="w-full rounded-xl border-2 border-[#121316] bg-stone-50 px-3.5 py-2.5 text-sm font-medium text-[#121316] placeholder-stone-400 outline-none transition focus:bg-white focus:shadow-[2px_2px_0_#121316]"
             />
             {formErrors.passwordErr && (
-              <p className="mt-1 text-[11px] text-red-400">{formErrors.passwordErr}</p>
+              <p className="mt-1 text-[11px] font-bold text-red-500">{formErrors.passwordErr}</p>
             )}
           </div>
 
           <div>
-            <label className="font-sans mb-1 block text-xs font-semibold text-[#f6f4ed]/75">
+            <label className="font-sans mb-1 block text-xs font-bold text-stone-700">
               Confirm Password
             </label>
             <input
@@ -133,25 +130,25 @@ const SignupPage = () => {
               placeholder="••••••••"
               value={formData.confirmPassword}
               onChange={handleChange}
-              className="w-full rounded-xl border border-white/10 bg-white/5 px-3.5 py-2.5 text-sm text-[#f6f4ed] placeholder-white/30 outline-none transition focus:border-[#d2e815]/50 focus:ring-1 focus:ring-[#d2e815]/30"
+              className="w-full rounded-xl border-2 border-[#121316] bg-stone-50 px-3.5 py-2.5 text-sm font-medium text-[#121316] placeholder-stone-400 outline-none transition focus:bg-white focus:shadow-[2px_2px_0_#121316]"
             />
             {formErrors.confirmPasswordErr && (
-              <p className="mt-1 text-[11px] text-red-400">{formErrors.confirmPasswordErr}</p>
+              <p className="mt-1 text-[11px] font-bold text-red-500">{formErrors.confirmPasswordErr}</p>
             )}
           </div>
 
           <button
             type="submit"
             disabled={isLoading}
-            className="mt-2 flex min-h-11 w-full items-center justify-center rounded-xl bg-[#d2e815] py-2.5 text-sm font-bold text-[#111214] shadow-md transition hover:bg-[#c2d80b] active:scale-[0.98] disabled:opacity-50"
+            className="mt-2 flex min-h-11 w-full items-center justify-center rounded-full border-2 border-[#121316] bg-[#FFE600] py-2.5 text-sm font-black text-[#121316] shadow-[3px_3px_0_#121316] transition hover:bg-amber-300 hover:shadow-[1px_1px_0_#121316] active:translate-y-0.5 disabled:opacity-50"
           >
-            {isLoading ? 'Creating Account...' : 'Sign Up'}
+            {isLoading ? 'Creating Account...' : 'Sign Up ✦'}
           </button>
         </form>
 
-        <p className="font-sans mt-6 text-center text-xs text-[#f6f4ed]/60">
+        <p className="font-sans mt-6 text-center text-xs font-medium text-stone-500">
           Already have an account?{' '}
-          <Link to="/login" className="font-semibold text-[#d2e815] transition hover:underline">
+          <Link to="/login" className="font-bold text-[#121316] underline decoration-[#FFE600] decoration-2">
             Sign In
           </Link>
         </p>
