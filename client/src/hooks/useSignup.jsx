@@ -36,7 +36,7 @@ const useSignup = () => {
         payload: data.user,
       });
 
-      navigate("/", { replace: true });
+      navigate("/app", { replace: true });
       return { success: true, user: data.user };
     } catch (err) {
       const errorMsg = "Network error. Please try again.";

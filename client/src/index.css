@@ -1,9 +1,84 @@
 @import "tailwindcss";
+@import "lenis/dist/lenis.css";
+
+/* ==========================================================================
+   Custom Typography from sample/ (Tanker, Telma, Pencerio)
+   ========================================================================== */
+
+/* Tanker: Bold, punchy geometric display typeface */
+@font-face {
+  font-family: 'Tanker';
+  src: url('/fonts/Tanker-Regular.otf') format('opentype');
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Telma: Expressive serif/display family across 5 weights */
+@font-face {
+  font-family: 'Telma';
+  src: url('/fonts/Telma-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Telma';
+  src: url('/fonts/Telma-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Telma';
+  src: url('/fonts/Telma-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Telma';
+  src: url('/fonts/Telma-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Telma';
+  src: url('/fonts/Telma-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Pencerio: Ultra-refined hairline display typeface */
+@font-face {
+  font-family: 'Pencerio';
+  src: url('/fonts/Pencerio-Hairline.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Syne', sans-serif;
+  --font-tanker: 'Tanker', sans-serif;
+  --font-telma: 'Telma', serif;
+  --font-pencerio: 'Pencerio', sans-serif;
+}
 
 @layer base {
   :root {
     --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-display: 'Syne', sans-serif;
+    --font-tanker: 'Tanker', sans-serif;
+    --font-telma: 'Telma', serif;
+    --font-pencerio: 'Pencerio', sans-serif;
     --color-cream: #fbf9f4;
     --color-dark: #121316;
     --color-yellow: #ffe600;
@@ -19,7 +94,15 @@
     color: #121316;
     font-family: var(--font-sans);
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow-x: clip;
+  }
+
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -39,6 +122,18 @@
 
 .font-sans {
   font-family: 'DM Sans', sans-serif;
+}
+
+.font-tanker {
+  font-family: 'Tanker', sans-serif;
+}
+
+.font-telma {
+  font-family: 'Telma', serif;
+}
+
+.font-pencerio {
+  font-family: 'Pencerio', sans-serif;
 }
 
 /* Subtle Perspective Grid (Matches Reference Image 1) */

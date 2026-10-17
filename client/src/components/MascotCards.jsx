@@ -171,33 +171,33 @@ export const MascotCardTrio = () => {
       <motion.div
         variants={cardVariants}
         whileHover={{
-          y: -14,
+          y: -10,
           scale: 1.02,
           rotate: -0.5,
-          boxShadow: '0 20px 0 #121316',
+          boxShadow: '0 16px 0 #121316',
         }}
         whileTap={{ scale: 0.98 }}
         transition={{ type: 'spring', stiffness: 380, damping: 22 }}
-        className="group relative flex flex-col justify-between overflow-hidden rounded-[2.2rem] border-2 border-[#121316] bg-[#42B4FC] p-6 shadow-[0_12px_0_#121316] cursor-pointer"
+        className="group relative flex flex-col justify-between overflow-hidden rounded-[2rem] border-2 border-[#121316] bg-[#42B4FC] p-4 sm:p-5 shadow-[0_8px_0_#121316] sm:shadow-[0_10px_0_#121316] cursor-pointer min-w-0 box-border"
       >
         <div className="flex items-center justify-between">
-          <span className="rounded-full border border-[#121316] bg-white px-3 py-1 text-[11px] font-bold text-[#121316]">
+          <span className="rounded-full border border-[#121316] bg-white px-2.5 py-0.5 text-[11px] font-bold text-[#121316]">
             Vision & Hands
           </span>
-          <span className="flex h-7 w-7 items-center justify-center rounded-full border border-[#121316] bg-[#FFE600] text-xs font-bold">
+          <span className="flex h-6 w-6 items-center justify-center rounded-full border border-[#121316] bg-[#FFE600] text-xs font-bold">
             01
           </span>
         </div>
 
-        <div className="my-2 flex justify-center">
+        <div className="my-1.5 flex justify-center">
           <SunVisionMascot />
         </div>
 
-        <div className="rounded-2xl border-2 border-[#121316] bg-white/95 p-4 shadow-sm backdrop-blur-sm">
+        <div className="rounded-2xl border-2 border-[#121316] bg-white/95 p-3.5 shadow-sm backdrop-blur-sm min-w-0">
           <h3 className="font-display text-base font-extrabold text-[#121316]">
-            Sign Language $\rightarrow$ Voice
+            Sign Language → Voice
           </h3>
-          <p className="font-sans mt-1 text-xs text-stone-600 leading-relaxed">
+          <p className="font-sans mt-1 text-xs text-stone-600 leading-relaxed font-normal">
             Tracks 21 hand landmarks in real-time via standard webcams without extra sensors.
           </p>
         </div>
@@ -207,21 +207,21 @@ export const MascotCardTrio = () => {
       <motion.div
         variants={cardVariants}
         whileHover={{
-          y: -18,
-          scale: 1.03,
+          y: -12,
+          scale: 1.025,
           rotate: 0.5,
-          boxShadow: '0 24px 0 #121316',
+          boxShadow: '0 18px 0 #121316',
         }}
         whileTap={{ scale: 0.98 }}
         transition={{ type: 'spring', stiffness: 380, damping: 22 }}
-        className="group relative flex flex-col justify-between overflow-hidden rounded-[2.4rem] border-2 border-[#121316] bg-[#FF7DA7] p-6 shadow-[0_16px_0_#121316] cursor-pointer sm:-translate-y-3"
+        className="group relative flex flex-col justify-between overflow-hidden rounded-[2.2rem] border-2 border-[#121316] bg-[#FF7DA7] p-4.5 sm:p-5.5 shadow-[0_10px_0_#121316] sm:shadow-[0_14px_0_#121316] cursor-pointer sm:-translate-y-2 min-w-0 box-border"
       >
         {/* Floating Tag */}
         <div className="flex items-center justify-between">
-          <span className="rounded-full border border-[#121316] bg-[#FFE600] px-3.5 py-1 text-xs font-extrabold text-[#121316]">
+          <span className="rounded-full border border-[#121316] bg-[#FFE600] px-3 py-0.5 text-xs font-extrabold text-[#121316]">
             ⚡ Multimodal Core
           </span>
-          <span className="flex h-7 w-7 items-center justify-center rounded-full border border-[#121316] bg-white text-xs font-bold">
+          <span className="flex h-6 w-6 items-center justify-center rounded-full border border-[#121316] bg-white text-xs font-bold">
             02
           </span>
         </div>
@@ -230,7 +230,7 @@ export const MascotCardTrio = () => {
           <PeaceGloveMascot />
         </div>
 
-        <div className="rounded-2xl border-2 border-[#121316] bg-white/95 p-4 shadow-sm backdrop-blur-sm">
+        <div className="rounded-2xl border-2 border-[#121316] bg-white/95 p-3.5 shadow-sm backdrop-blur-sm min-w-0">
           <div className="flex items-center justify-between">
             <h3 className="font-display text-base font-extrabold text-[#121316]">
               The Real-Time Bridge
@@ -239,7 +239,7 @@ export const MascotCardTrio = () => {
               Live AI
             </span>
           </div>
-          <p className="font-sans mt-1 text-xs text-stone-600 leading-relaxed">
+          <p className="font-sans mt-1 text-xs text-stone-600 leading-relaxed font-normal">
             Google Gemini synthesizes gesture streams into fluent human speech with zero hardware.
           </p>
         </div>
@@ -249,33 +249,33 @@ export const MascotCardTrio = () => {
       <motion.div
         variants={cardVariants}
         whileHover={{
-          y: -14,
+          y: -10,
           scale: 1.02,
           rotate: 0.5,
-          boxShadow: '0 20px 0 #121316',
+          boxShadow: '0 16px 0 #121316',
         }}
         whileTap={{ scale: 0.98 }}
         transition={{ type: 'spring', stiffness: 380, damping: 22 }}
-        className="group relative flex flex-col justify-between overflow-hidden rounded-[2.2rem] border-2 border-[#121316] bg-[#FFAE33] p-6 shadow-[0_12px_0_#121316] cursor-pointer"
+        className="group relative flex flex-col justify-between overflow-hidden rounded-[2rem] border-2 border-[#121316] bg-[#FFAE33] p-4 sm:p-5 shadow-[0_8px_0_#121316] sm:shadow-[0_10px_0_#121316] cursor-pointer min-w-0 box-border"
       >
         <div className="flex items-center justify-between">
-          <span className="rounded-full border border-[#121316] bg-white px-3 py-1 text-[11px] font-bold text-[#121316]">
+          <span className="rounded-full border border-[#121316] bg-white px-2.5 py-0.5 text-[11px] font-bold text-[#121316]">
             Speech & Audio
           </span>
-          <span className="flex h-7 w-7 items-center justify-center rounded-full border border-[#121316] bg-[#38BDF8] text-xs font-bold text-white">
+          <span className="flex h-6 w-6 items-center justify-center rounded-full border border-[#121316] bg-[#38BDF8] text-xs font-bold text-white">
             03
           </span>
         </div>
 
-        <div className="my-2 flex justify-center">
+        <div className="my-1.5 flex justify-center">
           <DaisyAudioMascot />
         </div>
 
-        <div className="rounded-2xl border-2 border-[#121316] bg-white/95 p-4 shadow-sm backdrop-blur-sm">
+        <div className="rounded-2xl border-2 border-[#121316] bg-white/95 p-3.5 shadow-sm backdrop-blur-sm min-w-0">
           <h3 className="font-display text-base font-extrabold text-[#121316]">
-            Speech $\rightarrow$ Visual Signs
+            Speech → Visual Signs
           </h3>
-          <p className="font-sans mt-1 text-xs text-stone-600 leading-relaxed">
+          <p className="font-sans mt-1 text-xs text-stone-600 leading-relaxed font-normal">
             Instantly turns spoken audio into visual flashcards & clear subtitles for the deaf.
           </p>
         </div>

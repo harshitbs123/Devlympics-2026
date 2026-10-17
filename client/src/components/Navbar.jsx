@@ -1,173 +1,255 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/auth/AuthContext';
 import useLogout from '../hooks/useLogout';
+import { TalkBridgeDoodleLogo } from './Footer';
+import { getLenis } from '../utils/lenis';
 
 const Navbar = () => {
   const { isLoggedin, user } = useAuth();
   const { logout, isLoading } = useLogout();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault();
+    if (pathname === '/') {
+      const el = document.getElementById(targetId);
+      if (el) {
+        const lenis = getLenis();
+        if (lenis) {
+          lenis.scrollTo(el, { offset: -70 });
+        } else {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+        window.history.pushState(null, '', `#${targetId}`);
+      }
+    } else {
+      navigate(`/#${targetId}`);
+    }
+    setMobileMenuOpen(false);
+  };
 
   return (
-    <header className="w-full px-4 sm:px-6">
+    <header className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 select-none">
       <nav
         aria-label="Main navigation"
-        className="mx-auto flex max-w-4xl items-center justify-between rounded-full border border-black/[0.08] bg-white/80 px-4 py-2 shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur-md transition-all duration-200"
+        className="flex items-center justify-between w-full"
       >
-        {/* Brand Logo */}
-        <Link to="/" className="group flex items-center gap-2.5 pl-1.5 focus:outline-none">
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#121316] text-[#FFE600] transition group-hover:scale-105">
-            <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z" />
-            </svg>
+        {/* ===================================================================
+            LEFT SIDE: Big TalkBridge Brand Logo (Mascot Icon from Footer + Wordmark)
+           =================================================================== */}
+        <Link
+          to="/"
+          className="group flex items-center gap-2.5 sm:gap-3 focus:outline-none"
+          aria-label="TalkBridge Home"
+        >
+          {/* Exact Hand-Drawn Mascot Doodle Icon from Footer */}
+          <div className="transition-transform duration-300 group-hover:scale-105 group-hover:-rotate-2">
+            <TalkBridgeDoodleLogo className="h-10 sm:h-12 w-auto" />
           </div>
-          <span className="font-display text-sm font-extrabold tracking-tight text-[#121316]">
-            Omni<span className="text-amber-500">Bridge</span>
+
+          {/* Big Bold Typography */}
+          <span className="font-display text-2xl sm:text-3xl font-black tracking-tight text-[#121316] leading-none transition-transform group-hover:scale-[1.02]">
+            talk<span className="text-[#2563EB]">bridge</span>
           </span>
         </Link>
 
-        {/* Center Desktop Links */}
-        <div className="hidden items-center gap-6 text-xs font-semibold text-stone-600 md:flex">
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              `transition hover:text-black ${isActive ? 'text-black font-bold' : ''}`
-            }
+        {/* ===================================================================
+            RIGHT SIDE: Neatly Spaced Rounded Navigation Boxes (Desktop)
+           =================================================================== */}
+        <div className="hidden md:flex items-center gap-2 sm:gap-2.5 lg:gap-3">
+          
+          {/* "What We Offer" Box */}
+          <button
+            type="button"
+            onClick={(e) => handleNavClick(e, 'what-we-offer')}
+            className="inline-flex items-center gap-1.5 rounded-full border-2 border-[#121316] bg-white px-4 py-2 text-xs font-bold text-[#121316] shadow-[2px_2.5px_0_#121316] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#FFE600] hover:shadow-[3px_3.5px_0_#121316] cursor-pointer"
           >
-            Overview
-          </NavLink>
-          <a href="#how-it-works" className="transition hover:text-black">
-            How It Works
-          </a>
-          <a href="#solutions" className="transition hover:text-black">
-            Solutions
-          </a>
-          <a href="#tech" className="transition hover:text-black">
-            Tech Stack
-          </a>
-        </div>
+            <span>What We Offer</span>
+            <span className="text-xs">⚡</span>
+          </button>
 
-        {/* Right CTA / Auth Status */}
-        <div className="hidden items-center gap-2.5 md:flex">
+          {/* "How It Works" Box */}
+          <button
+            type="button"
+            onClick={(e) => handleNavClick(e, 'how-it-works')}
+            className="inline-flex items-center rounded-full border-2 border-[#121316] bg-white px-4 py-2 text-xs font-bold text-[#121316] shadow-[2px_2.5px_0_#121316] transition-all duration-200 hover:-translate-y-0.5 hover:bg-stone-50 hover:shadow-[3px_3.5px_0_#121316] cursor-pointer"
+          >
+            <span>How It Works</span>
+          </button>
+
+          {/* "FAQs" Box */}
+          <button
+            type="button"
+            onClick={(e) => handleNavClick(e, 'faq')}
+            className="inline-flex items-center rounded-full border-2 border-[#121316] bg-white px-4 py-2 text-xs font-bold text-[#121316] shadow-[2px_2.5px_0_#121316] transition-all duration-200 hover:-translate-y-0.5 hover:bg-stone-50 hover:shadow-[3px_3.5px_0_#121316] cursor-pointer"
+          >
+            <span>FAQs</span>
+          </button>
+
+          {/* Small Divider */}
+          <span className="h-5 w-px bg-stone-300 mx-0.5" />
+
+          {/* Auth State: Logged In vs Log In / Sign Up Boxes */}
           {isLoggedin ? (
             <div className="flex items-center gap-2">
-              <div className="flex items-center gap-2 rounded-full border border-stone-200 bg-stone-50 py-1 pl-1 pr-3">
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#FFE600] text-[11px] font-extrabold text-[#121316]">
+              <Link
+                to="/app"
+                className="flex items-center gap-2 rounded-full border-2 border-[#121316] bg-white py-1.5 pl-2 pr-3.5 shadow-[2px_2.5px_0_#121316] hover:bg-stone-50 transition"
+              >
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#FFE600] text-[11px] font-black text-[#121316]">
                   {user?.name ? user.name.charAt(0).toUpperCase() : 'U'}
                 </span>
-                <span className="max-w-[100px] truncate text-xs font-semibold text-stone-800">
+                <span className="max-w-[100px] truncate text-xs font-bold text-[#121316]">
                   {user?.name || 'User'}
                 </span>
-              </div>
+              </Link>
+              <Link
+                to="/app"
+                className="inline-flex items-center gap-1.5 rounded-full border-2 border-[#121316] bg-[#FFE600] px-4 py-2 text-xs font-black uppercase tracking-wider text-[#121316] shadow-[2px_2.5px_0_#121316] transition-all hover:-translate-y-0.5 hover:bg-[#fed700]"
+              >
+                <span>Launch App</span>
+                <span className="text-xs">⚡</span>
+              </Link>
               <button
                 onClick={logout}
                 disabled={isLoading}
-                className="rounded-full border border-stone-200 px-3 py-1.5 text-xs font-semibold text-stone-600 transition hover:bg-stone-100 hover:text-black disabled:opacity-50"
+                className="rounded-full border-2 border-[#121316] bg-stone-100 px-3.5 py-1.5 text-xs font-bold text-[#121316] transition-all hover:bg-stone-200 shadow-[2px_2px_0_#121316] disabled:opacity-50"
               >
                 {isLoading ? '...' : 'Sign out'}
               </button>
             </div>
           ) : (
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 sm:gap-2.5">
+              {/* Log In Box */}
               <Link
                 to="/login"
-                className="px-3 py-1.5 text-xs font-semibold text-stone-700 transition hover:text-black"
+                className="inline-flex items-center rounded-full border-2 border-[#121316] bg-white px-4 py-2 text-xs font-bold text-[#121316] shadow-[2px_2.5px_0_#121316] transition-all duration-200 hover:-translate-y-0.5 hover:bg-stone-50 hover:shadow-[3px_3.5px_0_#121316]"
               >
-                Sign in
+                <span>Log In</span>
               </Link>
+
+              {/* Prominent Sign Up Box */}
               <Link
                 to="/signup"
-                className="flex items-center gap-1.5 rounded-full bg-[#121316] px-4 py-1.5 text-xs font-bold text-white shadow-sm transition hover:bg-stone-800 hover:scale-105 active:scale-95"
+                className="inline-flex items-center gap-1.5 rounded-full border-2 border-[#121316] bg-[#121316] px-5 py-2 text-xs font-bold text-[#FFE600] shadow-[2.5px_3px_0_#FFE600] transition-all duration-200 hover:-translate-y-0.5 hover:bg-stone-900 active:translate-y-0.5"
               >
-                Try for free
+                <span>Sign Up</span>
+                <span className="text-[#FFE600] text-xs">⚡</span>
               </Link>
             </div>
           )}
+
         </div>
 
-        {/* Mobile Hamburger Button */}
+        {/* ===================================================================
+            MOBILE: Hamburger Menu Button
+           =================================================================== */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="flex h-8 w-8 items-center justify-center rounded-full text-stone-700 hover:bg-stone-100 md:hidden"
-          aria-label="Toggle menu"
+          className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[#121316] bg-white text-[#121316] shadow-[2px_2px_0_#121316] hover:bg-stone-50 md:hidden transition active:translate-y-0.5"
+          aria-label="Toggle navigation menu"
         >
           <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             {mobileMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
             ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M4 6h16M4 12h16M4 18h16" />
             )}
           </svg>
         </button>
+
       </nav>
 
-      {/* Mobile Menu Dropdown */}
+      {/* ===================================================================
+          MOBILE: Responsive Dropdown Menu with Rounded Boxes
+         =================================================================== */}
       {mobileMenuOpen && (
-        <div className="mx-auto mt-2 max-w-sm rounded-2xl border border-stone-200 bg-white/95 p-4 shadow-xl backdrop-blur-lg md:hidden">
-          <div className="flex flex-col gap-2.5 text-sm font-semibold text-stone-700">
-            <Link
-              to="/"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-1 hover:text-black"
+        <div className="mt-3 rounded-3xl border-2 border-[#121316] bg-white p-5 shadow-[4px_6px_0_#121316] md:hidden animate-in fade-in slide-in-from-top-2 duration-200">
+          <div className="flex flex-col gap-3">
+            {/* What We Offer Pill */}
+            <button
+              type="button"
+              onClick={(e) => handleNavClick(e, 'what-we-offer')}
+              className="flex items-center justify-between rounded-2xl border-2 border-[#121316] bg-[#FFE600] px-4 py-2.5 text-xs font-black uppercase text-[#121316] shadow-[2px_2.5px_0_#121316] text-left cursor-pointer"
             >
-              Overview
-            </Link>
-            <a
-              href="#how-it-works"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-1 hover:text-black"
+              <span>⚡ What We Offer</span>
+              <span className="text-xs">↓</span>
+            </button>
+
+            {/* How It Works Pill */}
+            <button
+              type="button"
+              onClick={(e) => handleNavClick(e, 'how-it-works')}
+              className="flex items-center justify-between rounded-2xl border-2 border-[#121316] bg-white px-4 py-2.5 text-xs font-bold text-[#121316] shadow-[2px_2.5px_0_#121316] hover:bg-stone-50 text-left cursor-pointer"
             >
-              How It Works
-            </a>
-            <a
-              href="#solutions"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-1 hover:text-black"
+              <span>How It Works</span>
+              <span className="text-stone-400">↓</span>
+            </button>
+
+            {/* FAQs Pill */}
+            <button
+              type="button"
+              onClick={(e) => handleNavClick(e, 'faq')}
+              className="flex items-center justify-between rounded-2xl border-2 border-[#121316] bg-white px-4 py-2.5 text-xs font-bold text-[#121316] shadow-[2px_2.5px_0_#121316] hover:bg-stone-50 text-left cursor-pointer"
             >
-              Solutions
-            </a>
-            <a
-              href="#tech"
-              onClick={() => setMobileMenuOpen(false)}
-              className="py-1 hover:text-black"
-            >
-              Tech Stack
-            </a>
-            <div className="mt-2 border-t border-stone-100 pt-3">
+              <span>FAQs</span>
+              <span className="text-stone-400">↓</span>
+            </button>
+
+            {/* Auth Section */}
+            <div className="mt-2 border-t-2 border-stone-100 pt-3">
               {isLoggedin ? (
                 <div className="flex flex-col gap-2">
-                  <span className="text-xs text-stone-500">
-                    Logged in as <strong>{user?.name}</strong>
-                  </span>
+                  <Link
+                    to="/app"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center gap-2 rounded-2xl border-2 border-[#121316] bg-stone-50 px-3 py-2 text-xs font-semibold text-stone-700 shadow-[2px_2px_0_#121316]"
+                  >
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#FFE600] text-[10px] font-black text-[#121316]">
+                      {user?.name ? user.name.charAt(0).toUpperCase() : 'U'}
+                    </span>
+                    <span>Logged in as <strong>{user?.name}</strong></span>
+                  </Link>
+                  <Link
+                    to="/app"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-full rounded-2xl border-2 border-[#121316] bg-[#FFE600] py-2.5 text-center text-xs font-black uppercase text-[#121316] shadow-[2px_2px_0_#121316]"
+                  >
+                    Launch App ⚡
+                  </Link>
                   <button
                     onClick={() => {
                       logout();
                       setMobileMenuOpen(false);
                     }}
-                    className="w-full rounded-full border border-stone-200 py-1.5 text-center text-xs font-semibold text-stone-700"
+                    className="w-full rounded-2xl border-2 border-[#121316] bg-stone-100 py-2.5 text-center text-xs font-bold text-[#121316] shadow-[2px_2px_0_#121316]"
                   >
                     Sign out
                   </button>
                 </div>
               ) : (
-                <div className="flex gap-2">
+                <div className="flex gap-2.5">
                   <Link
                     to="/login"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex-1 rounded-full border border-stone-200 py-2 text-center text-xs font-semibold text-stone-700"
+                    className="flex-1 rounded-2xl border-2 border-[#121316] bg-white py-2.5 text-center text-xs font-bold text-[#121316] shadow-[2px_2.5px_0_#121316]"
                   >
-                    Sign in
+                    Log In
                   </Link>
                   <Link
                     to="/signup"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex-1 rounded-full bg-[#121316] py-2 text-center text-xs font-bold text-white"
+                    className="flex-1 rounded-2xl border-2 border-[#121316] bg-[#2563EB] py-2.5 text-center text-xs font-bold text-white shadow-[2px_2.5px_0_#121316]"
                   >
-                    Try for free
+                    Sign Up ⚡
                   </Link>
                 </div>
               )}
             </div>
+
           </div>
         </div>
       )}
