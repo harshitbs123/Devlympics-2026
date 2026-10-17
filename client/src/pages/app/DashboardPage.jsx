@@ -42,6 +42,7 @@ const FEATURES = [
       'Continuous 21-point hand tracking converting signs into real-time text and synthesized speech in English and Hindi.',
     badge: 'Ready to Launch',
     actionText: 'Launch Workspace',
+    cardBg: 'bg-[#F0F9FF]',
     iconBg: 'bg-[#E0F2FE] text-[#0369A1]',
     pillDot: 'bg-[#0284C7]',
     tagPill: 'Vision & Hands',
@@ -57,6 +58,7 @@ const FEATURES = [
       'Captures spoken dialogue from hearing partners and renders live animated sign illustrations and visual cues.',
     badge: 'Interactive Beta',
     actionText: 'Open Speech Decoder',
+    cardBg: 'bg-[#FFFBEB]',
     iconBg: 'bg-[#FEF3C7] text-[#B45309]',
     pillDot: 'bg-[#D97706]',
     tagPill: 'Speech & Audio',
@@ -72,6 +74,7 @@ const FEATURES = [
       'High-contrast visual pictograms and communication tiles for non-verbal users with instant voice playback.',
     badge: 'Interactive Beta',
     actionText: 'Open Symbol Board',
+    cardBg: 'bg-[#FFF1F2]',
     iconBg: 'bg-[#FCE7F3] text-[#BE185D]',
     pillDot: 'bg-[#DB2777]',
     tagPill: 'Visual AAC Grid',
@@ -87,6 +90,7 @@ const FEATURES = [
       'Live bidirectional conversation translator supporting 15+ Indian and global languages with hands-free voice input and auto-speech output.',
     badge: 'Ready to Launch',
     actionText: 'Open Live Translator',
+    cardBg: 'bg-[#ECFDF5]',
     iconBg: 'bg-[#D1FAE5] text-[#047857]',
     pillDot: 'bg-[#059669]',
     tagPill: 'Multilingual Core',
@@ -175,12 +179,12 @@ const DashboardPage = () => {
               return (
                 <div
                   key={feature.id}
-                  className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border-2 border-[#121316] bg-white p-6 shadow-[3px_4px_0_#121316] transition-all duration-200 hover:-translate-y-1 hover:shadow-[5px_6px_0_#121316]"
+                  className={`group relative flex flex-col justify-between overflow-hidden rounded-3xl border-2 border-[#121316] ${feature.cardBg} p-6 shadow-[3px_4px_0_#121316] transition-all duration-200 hover:-translate-y-1 hover:shadow-[5px_6px_0_#121316]`}
                 >
                   {/* Top Badge & Number */}
                   <div>
                     <div className="flex items-center justify-between">
-                      <span className="inline-flex items-center gap-1.5 rounded-full border border-stone-200 bg-stone-50 px-3 py-1 text-xs font-bold text-stone-700">
+                      <span className="inline-flex items-center gap-1.5 rounded-full border-2 border-[#121316]/20 bg-white/85 px-3 py-1 text-xs font-bold text-stone-700 shadow-sm backdrop-blur-xs">
                         <span className={`h-2 w-2 rounded-full ${feature.pillDot}`} />
                         <span>{feature.tagPill}</span>
                       </span>
@@ -195,7 +199,7 @@ const DashboardPage = () => {
                         <IconComp className="w-6 h-6" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <span className="text-[10px] font-black uppercase tracking-wider text-stone-400 block mb-0.5">
+                        <span className="text-[10px] font-black uppercase tracking-wider text-stone-500 block mb-0.5">
                           {feature.tagline}
                         </span>
                         <h3 className="font-display text-xl font-black text-[#121316] leading-snug">
@@ -227,7 +231,7 @@ const DashboardPage = () => {
         </div>
 
         {/* Profile Calibration Snapshot Card */}
-        <div className="mt-8 rounded-3xl border-2 border-[#121316] bg-white p-5 sm:p-6 shadow-[3px_4px_0_#121316]">
+        <div className="mt-8 rounded-3xl border-2 border-[#121316] bg-[#FFFDF0] p-5 sm:p-6 shadow-[3px_4px_0_#121316]">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex items-center gap-3.5">
               <div className="flex h-10 w-10 items-center justify-center rounded-xl border-2 border-[#121316] bg-[#FFE600] text-[#121316] shadow-[2px_2px_0_#121316]">

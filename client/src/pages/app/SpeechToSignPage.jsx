@@ -204,7 +204,7 @@ const SpeechToSignPage = () => {
             />
 
             {/* Hint */}
-            <div className="flex items-center gap-3 rounded-2xl border-2 border-[#121316] bg-white p-3.5 text-xs font-medium text-stone-700 shadow-[2px_2px_0_#121316]">
+            <div className="flex items-center gap-3 rounded-2xl border-2 border-[#121316] bg-[#ECFDF5] p-3.5 text-xs font-medium text-stone-700 shadow-[2px_2px_0_#121316]">
               <SparklesIcon className="w-4 h-4 text-emerald-600 shrink-0" />
               <span>
                 <strong>Natural Duration Timing:</strong> Each sign plays through its authentic timing before smoothly advancing.
@@ -215,7 +215,7 @@ const SpeechToSignPage = () => {
           {/* Right Column (5 Cols): Speech Transcript & Controls */}
           <div className="lg:col-span-5 flex flex-col gap-4">
             
-            <div className="rounded-2xl border-2 border-[#121316] bg-white p-5 shadow-[4px_4px_0_#121316]">
+            <div className="rounded-2xl border-2 border-[#121316] bg-[#FFFBEB] p-5 shadow-[4px_4px_0_#121316]">
               <div className="flex items-center justify-between">
                 <span className="font-sans text-[11px] font-black uppercase tracking-wider text-[#2563EB]">
                   Transcribed Acoustic Dialogue
@@ -230,10 +230,10 @@ const SpeechToSignPage = () => {
                 onChange={(e) => setCapturedSpeech(e.target.value)}
                 rows={4}
                 placeholder={selectedLang === 'hi' ? 'यहाँ बोलें या टाइप करें...' : 'Speak or type here...'}
-                className="mt-3 w-full rounded-2xl border-2 border-[#121316] bg-[#FBF9F4] p-3.5 text-sm font-bold text-[#121316] focus:border-[#121316] focus:bg-white focus:outline-none transition leading-relaxed"
+                className="mt-3 w-full rounded-2xl border-2 border-[#121316] bg-white p-3.5 text-sm font-bold text-[#121316] focus:border-[#121316] focus:bg-white focus:outline-none transition leading-relaxed shadow-[1.5px_2px_0_#121316]"
               />
 
-              <div className="mt-4 flex items-center justify-between pt-3 border-t-2 border-stone-100">
+              <div className="mt-4 flex items-center justify-between pt-3 border-t-2 border-stone-200/60">
                 
                 {/* Mic Button */}
                 <button
@@ -281,7 +281,7 @@ const SpeechToSignPage = () => {
             </div>
 
             {/* Quick Dialogue Samples */}
-            <div className="rounded-2xl border-2 border-[#121316] bg-white p-4.5 shadow-[3px_3px_0_#121316]">
+            <div className="rounded-2xl border-2 border-[#121316] bg-[#FFFDF5] p-4.5 shadow-[3px_3px_0_#121316]">
               <span className="font-sans text-xs font-black uppercase tracking-wider text-stone-700 block mb-3">
                 Quick Prompts to Test (119 Signs)
               </span>

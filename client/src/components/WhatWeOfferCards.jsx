@@ -545,7 +545,8 @@ export const WhatWeOfferCards = () => {
     <motion.div
       variants={containerVariants}
       initial="hidden"
-      animate="visible"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.1, margin: '0px 0px -40px 0px' }}
       className="flex flex-col gap-5 sm:gap-6 max-w-5xl mx-auto"
     >
       {OFFER_CARDS.map((card, index) => {

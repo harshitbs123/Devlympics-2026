@@ -245,7 +245,7 @@ export const FAQSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.1 }}
         transition={{ duration: 0.65, ease: PREMIUM_EASE }}
-        className="relative overflow-hidden rounded-[2rem] border-2 border-[#121316] bg-white p-4 sm:p-7 shadow-[0_10px_0_#121316] transition-all"
+        className="relative overflow-hidden rounded-[2rem] border-2 border-[#121316] bg-white p-4 sm:p-7 shadow-[0_10px_0_#121316]"
       >
         {/* Subtle Decorative Ambient Corners (Minimalist) */}
         <div className="pointer-events-none absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-br from-amber-200/30 via-rose-200/20 to-transparent blur-xl" />

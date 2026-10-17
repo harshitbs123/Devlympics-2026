@@ -103,8 +103,10 @@ const InputPanel = ({
   const listeningDot  = isA ? 'bg-[#121316]' : 'bg-[#121316]';
   const listeningText = isA ? 'text-[#121316]' : 'text-[#121316]';
 
+  const panelBg = isA ? 'bg-[#FFFDF0]' : 'bg-[#F0FDF4]';
+
   return (
-    <div className="flex flex-col rounded-3xl border-2 border-[#121316] bg-white p-5 sm:p-6 shadow-[4px_4px_0_#121316] transition-all">
+    <div className={`flex flex-col rounded-3xl border-2 border-[#121316] ${panelBg} p-5 sm:p-6 shadow-[4px_4px_0_#121316] transition-all`}>
       {/* Header */}
       <div className="flex items-center justify-between border-b-2 border-[#121316]/10 pb-3 mb-4">
         <div className="flex items-center gap-2.5">
@@ -150,7 +152,7 @@ const InputPanel = ({
           placeholder={`Type or speak in ${langObj?.name}… (Enter to translate)`}
           rows={4}
           maxLength={500}
-          className={`w-full resize-none rounded-2xl border-2 border-[#121316] bg-[#FBF9F4] p-3.5 font-medium text-[#121316] placeholder:text-stone-400 focus:outline-none focus:bg-white shadow-[2px_2.5px_0_#121316] leading-relaxed transition ${fontSzTa}`}
+          className={`w-full resize-none rounded-2xl border-2 border-[#121316] bg-white p-3.5 font-medium text-[#121316] placeholder:text-stone-400 focus:outline-none focus:bg-white shadow-[2px_2.5px_0_#121316] leading-relaxed transition ${fontSzTa}`}
         />
 
         {/* Char counter */}
@@ -523,7 +525,7 @@ export const TwoWayTranslationPage = () => {
       </div>
 
       {/* ── Quick Phrase Starters ── */}
-      <div className="rounded-3xl border-2 border-[#121316] bg-white p-5 shadow-[4px_4px_0_#121316] flex flex-col gap-3">
+      <div className="rounded-3xl border-2 border-[#121316] bg-[#FFFDF5] p-5 shadow-[4px_4px_0_#121316] flex flex-col gap-3">
         <div className="flex items-center justify-between flex-wrap gap-2">
           <span className="text-xs font-black uppercase tracking-wider text-[#121316] flex items-center gap-1.5">
             <SparklesIcon className="w-3.5 h-3.5 text-amber-500" />
@@ -559,7 +561,7 @@ export const TwoWayTranslationPage = () => {
       </div>
 
       {/* ── Conversation Transcript ── */}
-      <div className="rounded-3xl border-2 border-[#121316] bg-white p-5 sm:p-6 shadow-[4px_4px_0_#121316] flex flex-col gap-4">
+      <div className="rounded-3xl border-2 border-[#121316] bg-[#F8FAFC] p-5 sm:p-6 shadow-[4px_4px_0_#121316] flex flex-col gap-4">
         <div className="flex items-center justify-between border-b-2 border-[#121316]/10 pb-3 flex-wrap gap-2">
           <div className="flex items-center gap-2">
             <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 border border-[#121316] animate-pulse" />

@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
+import { motion } from 'motion/react';
 import { getLenis } from '../utils/lenis';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -824,7 +825,13 @@ export const AssistiveDeckSlider = () => {
     <div ref={sectionRef} className="relative w-full max-w-5xl mx-auto px-4 py-8 sm:px-6">
       
       {/* Header Bar with Title and Real-Time Scroll Tabs */}
-      <div className="mb-6 sm:mb-8 flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left">
+      <motion.div
+        initial={{ opacity: 0, y: 22 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="mb-6 sm:mb-8 flex flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left"
+      >
         <div>
           <div className="mb-2 inline-flex items-center gap-1.5 rounded-lg border-2 border-[#121316] bg-[#FFE600] px-3 py-0.5 text-[11px] font-black uppercase text-[#121316] shadow-[1.5px_2px_0_#121316]">
             <span>⚡ Visual Assistive Experience</span>
@@ -842,10 +849,16 @@ export const AssistiveDeckSlider = () => {
           <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
           <span>Continuous Flow ↓</span>
         </div>
-      </div>
+      </motion.div>
 
       {/* Interactive Category Selector Tabs */}
-      <div className="mb-8 sm:mb-10 flex flex-wrap items-center justify-center gap-2 sm:gap-3 sticky top-4 z-30 py-1">
+      <motion.div
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+        className="mb-8 sm:mb-10 flex flex-wrap items-center justify-center gap-2 sm:gap-3 sticky top-4 z-30 py-1"
+      >
         {DECK_CARDS.map((card, idx) => {
           const isInitialActive = idx === 0;
           return (
@@ -864,7 +877,7 @@ export const AssistiveDeckSlider = () => {
             </button>
           );
         })}
-      </div>
+      </motion.div>
 
       {/* =====================================================================
           STACKED CARD DECK STAGE (Natural Continuous Sticky Stacking Flow)
@@ -1017,7 +1030,13 @@ export const AssistiveDeckSlider = () => {
       </div>
 
       {/* Bottom Action Card (Launch Live Bridge) */}
-      <div className="mt-10 sm:mt-12 rounded-3xl border-2 border-[#121316] bg-[#FFE600] p-6 text-center shadow-[4px_6px_0_#121316] sm:p-8">
+      <motion.div
+        initial={{ opacity: 0, y: 24, scale: 0.98 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+        className="mt-10 sm:mt-12 rounded-3xl border-2 border-[#121316] bg-[#FFE600] p-6 text-center shadow-[4px_6px_0_#121316] sm:p-8"
+      >
         <h4 className="font-display text-xl sm:text-2xl font-black text-[#121316]">
           Experience the Multimodal Bridge in Real Time
         </h4>
@@ -1033,14 +1052,14 @@ export const AssistiveDeckSlider = () => {
             <span className="text-[#FFE600]">⚡</span>
           </Link>
           <Link
-            to="/what-we-offer"
+            to="/#what-we-offer"
             className="inline-flex items-center gap-1.5 rounded-full border-2 border-[#121316] bg-white px-6 py-2.5 text-xs font-bold text-[#121316] shadow-[2px_2px_0_#121316] transition hover:bg-stone-50"
           >
             <span>All Assistive Modules</span>
             <span className="text-stone-400">↗</span>
           </Link>
         </div>
-      </div>
+      </motion.div>
 
     </div>
   );

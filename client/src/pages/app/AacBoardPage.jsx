@@ -63,7 +63,7 @@ const CATEGORIES = [
 ];
 
 const CATEGORY_STYLES = {
-  stone:  { chip: 'border-2 border-[#121316] bg-white text-[#121316] shadow-[2px_2px_0_#121316]', tile: 'border-2 border-[#121316] bg-white shadow-[2px_2.5px_0_#121316]',             icon: '⬜' },
+  stone:  { chip: 'border-2 border-[#121316] bg-[#FFFDF7] text-[#121316] shadow-[2px_2px_0_#121316]', tile: 'border-2 border-[#121316] bg-[#FFFDF7] shadow-[2px_2.5px_0_#121316]',             icon: '⬜' },
   blue:   { chip: 'border-2 border-[#121316] bg-[#38BDF8] text-[#121316] shadow-[2px_2px_0_#121316]', tile: 'border-2 border-[#121316] bg-blue-50/70 shadow-[2px_2.5px_0_#121316]',       icon: '🔵' },
   red:    { chip: 'border-2 border-[#121316] bg-rose-200 text-rose-950 shadow-[2px_2px_0_#121316]', tile: 'border-2 border-[#121316] bg-rose-50/70 shadow-[2px_2.5px_0_#121316]',        icon: '🔴' },
   purple: { chip: 'border-2 border-[#121316] bg-purple-200 text-purple-950 shadow-[2px_2px_0_#121316]', tile: 'border-2 border-[#121316] bg-purple-50/70 shadow-[2px_2.5px_0_#121316]',     icon: '🟣' },
@@ -362,7 +362,7 @@ const AacBoardPage = () => {
           </div>
 
           {/* ── Sentence Builder Bar ── */}
-          <div className={`mt-6 rounded-2xl border-2 p-4.5 shadow-[4px_4px_0_#121316] ${hc ? 'bg-zinc-800 border-zinc-600' : 'bg-white border-[#121316]'}`}>
+          <div className={`mt-6 rounded-2xl border-2 p-4.5 shadow-[4px_4px_0_#121316] ${hc ? 'bg-zinc-800 border-zinc-600' : 'bg-[#FFFDF0] border-[#121316]'}`}>
             <div className="flex items-start justify-between gap-3 flex-wrap">
               <div className="flex-1 min-w-0">
                 <span className={`text-[11px] font-bold uppercase tracking-wider block mb-2 ${hc ? 'text-zinc-400' : 'text-stone-400'}`}>
@@ -477,7 +477,7 @@ const AacBoardPage = () => {
                         : `${styles.chip}`
                       : hc
                       ? 'bg-zinc-800 text-zinc-300 hover:bg-zinc-700'
-                      : 'bg-white text-[#121316] hover:bg-stone-50'
+                      : 'bg-[#FFFDF7] text-[#121316] hover:bg-stone-100'
                   }`}
                 >
                   <span>{label}</span>

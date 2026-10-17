@@ -458,7 +458,7 @@ const SignToTextPage = () => {
             </div>
 
             {/* Accessible Advice Banner */}
-            <div className="flex items-center gap-3 rounded-2xl border-2 border-[#121316] bg-white p-4 text-xs font-medium text-stone-700 shadow-[3px_3px_0_#121316]">
+            <div className="flex items-center gap-3 rounded-2xl border-2 border-[#121316] bg-[#FFFBEB] p-4 text-xs font-medium text-stone-700 shadow-[3px_3px_0_#121316]">
               <SparklesIcon className="w-5 h-5 text-amber-500 shrink-0" />
               <span>
                 <strong>Optimal Gesture Recognition:</strong> Position yourself 2 to 3 feet from the camera with upper body and hands visible. The LSTM model parses continuous signs into natural {selectedLang === 'hi' ? 'हिंदी' : 'English'} sentences.
@@ -470,7 +470,7 @@ const SignToTextPage = () => {
           <div className="lg:col-span-5 flex flex-col gap-4">
             
             {/* Detected Token Stream */}
-            <div className="rounded-2xl border-2 border-[#121316] bg-white p-4.5 shadow-[3px_3px_0_#121316]">
+            <div className="rounded-2xl border-2 border-[#121316] bg-[#F0F9FF] p-4.5 shadow-[3px_3px_0_#121316]">
               <div className="flex items-center justify-between">
                 <span className="font-sans text-[11px] font-black uppercase tracking-wider text-stone-600">
                   Recognized Sign Tokens:
@@ -497,7 +497,7 @@ const SignToTextPage = () => {
             </div>
 
             {/* Natural Sentence Output Card */}
-            <div className="rounded-2xl border-2 border-[#121316] bg-white p-5 shadow-[4px_4px_0_#121316] flex flex-col justify-between min-h-[180px]">
+            <div className="rounded-2xl border-2 border-[#121316] bg-[#FFFDF5] p-5 shadow-[4px_4px_0_#121316] flex flex-col justify-between min-h-[180px]">
               <div>
                 <div className="flex items-center justify-between">
                   <span className="font-sans text-[11px] font-black uppercase tracking-wider text-[#2563EB]">
@@ -518,7 +518,7 @@ const SignToTextPage = () => {
               </div>
 
               {/* Actions */}
-              <div className="mt-5 flex flex-wrap items-center gap-2 border-t-2 border-stone-100 pt-4">
+              <div className="mt-5 flex flex-wrap items-center gap-2 border-t-2 border-stone-200/60 pt-4">
                 <button
                   type="button"
                   onClick={handleSpeakAloud}
@@ -551,7 +551,7 @@ const SignToTextPage = () => {
             </div>
 
             {/* Quick Phrases for selected language */}
-            <div className="rounded-2xl border-2 border-[#121316] bg-white p-4.5 shadow-[3px_3px_0_#121316]">
+            <div className="rounded-2xl border-2 border-[#121316] bg-[#FAF9F6] p-4.5 shadow-[3px_3px_0_#121316]">
               <div className="flex items-center justify-between mb-3">
                 <span className="font-sans text-xs font-black uppercase tracking-wider text-stone-700">
                   {selectedLang === 'hi' ? 'त्वरित उपयोगी वाक्य (Quick Phrases)' : 'Quick Preset Phrases'}

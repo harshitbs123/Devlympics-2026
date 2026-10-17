@@ -146,13 +146,26 @@ const containerVariants = {
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 40, scale: 0.94 },
+  hidden: { opacity: 0, y: 35, scale: 0.95 },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
     transition: {
-      duration: 0.75,
+      duration: 0.7,
+      ease: PREMIUM_EASE,
+    },
+  },
+};
+
+const centerCardVariants = {
+  hidden: { opacity: 0, y: 35, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: -8,
+    scale: 1,
+    transition: {
+      duration: 0.7,
       ease: PREMIUM_EASE,
     },
   },
@@ -165,7 +178,7 @@ export const MascotCardTrio = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
-      className="mx-auto mt-10 grid max-w-5xl grid-cols-1 items-end gap-5 px-4 sm:grid-cols-3 sm:px-6"
+      className="mx-auto mt-2 sm:mt-4 grid max-w-5xl grid-cols-1 items-end gap-5 px-4 sm:grid-cols-3 sm:px-6"
     >
       {/* Card 1: Sky Blue */}
       <motion.div
@@ -205,16 +218,16 @@ export const MascotCardTrio = () => {
 
       {/* Card 2: Center Hero Card (Bubblegum Pink - Taller and Elevated) */}
       <motion.div
-        variants={cardVariants}
+        variants={centerCardVariants}
         whileHover={{
-          y: -12,
+          y: -14,
           scale: 1.025,
           rotate: 0.5,
           boxShadow: '0 18px 0 #121316',
         }}
         whileTap={{ scale: 0.98 }}
         transition={{ type: 'spring', stiffness: 380, damping: 22 }}
-        className="group relative flex flex-col justify-between overflow-hidden rounded-[2.2rem] border-2 border-[#121316] bg-[#FF7DA7] p-4.5 sm:p-5.5 shadow-[0_10px_0_#121316] sm:shadow-[0_14px_0_#121316] cursor-pointer sm:-translate-y-2 min-w-0 box-border"
+        className="group relative flex flex-col justify-between overflow-hidden rounded-[2.2rem] border-2 border-[#121316] bg-[#FF7DA7] p-4.5 sm:p-5.5 shadow-[0_10px_0_#121316] sm:shadow-[0_14px_0_#121316] cursor-pointer min-w-0 box-border"
       >
         {/* Floating Tag */}
         <div className="flex items-center justify-between">
