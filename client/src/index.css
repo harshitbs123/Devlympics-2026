@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'DM Sans', sans-serif;
+    --font-display: 'Syne', sans-serif;
+    --color-lime: #d2e815;
+    --color-lime-hover: #c2d80b;
+    --color-bg-cream: #f6f4ed;
+    --color-dark: #111214;
+  }
+
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #080907;
+    color: #f6f4ed;
+    font-family: var(--font-sans);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+
+  ::selection {
+    background: rgba(210, 232, 21, 0.28);
+    color: #f6f4ed;
+  }
+}
+
+.font-display {
+  font-family: 'Syne', sans-serif;
+}
+
+.font-sans {
+  font-family: 'DM Sans', sans-serif;
+}
+
+.brand-mark {
+  display: inline-block;
+  background: conic-gradient(from 225deg, #f6f4ed, #d2e815, #8d9a10, #f6f4ed);
+  clip-path: polygon(50% 0%, 66% 36%, 100% 50%, 66% 64%, 50% 100%, 34% 64%, 0% 50%, 34% 36%);
+  filter: drop-shadow(0 0 8px rgba(210, 232, 21, 0.25));
+}
